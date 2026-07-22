@@ -103,6 +103,12 @@ h1 em { color: var(--accent); font-style: normal; }
 .project-card > div:last-child > p { max-width: 500px; margin: 0 0 20px; opacity: .7; line-height: 1.65; }
 .project-dark .tags span { border-color: #46514d; background: transparent; }
 .project-light .tags span { border-color: rgba(24,32,29,.18); background: rgba(255,255,255,.35); }
+.project-coming { grid-column: 1 / -1; min-height: 300px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; column-gap: 40px; background: linear-gradient(135deg, #f4f1e9, #dce8e1); color: var(--ink); border: 1px solid rgba(255,255,255,.14); }
+.project-coming .project-top { grid-column: 1 / -1; }
+.project-coming .project-icon { grid-column: 2; grid-row: 2; align-self: center; width: 96px; height: 96px; border-radius: 28px; background: var(--dark); color: var(--mint); box-shadow: 16px 18px 0 rgba(24,32,29,.09); font-size: 1.7rem; letter-spacing: .12em; }
+.project-coming > div:last-child { grid-column: 1; grid-row: 2; align-self: end; }
+.project-coming > div:last-child > .coming-status { margin: 0 0 8px; color: var(--accent-dark); opacity: 1; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.project-coming h3 { margin: 0; font-size: clamp(2.8rem, 6vw, 5rem); }
 
 .contact { background: var(--white); }
 .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(70px, 10vw, 150px); }
@@ -165,6 +171,8 @@ h1 em { color: var(--accent); font-style: normal; }
   .company-logo, .timeline-index { grid-column: 2; grid-row: 2; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card { min-height: 470px; padding: 26px; }
+  .project-coming { min-height: 350px; display: flex; }
+  .project-coming .project-icon { width: 86px; height: 86px; }
   .contact-form { padding: 25px; }
   .footer-inner { align-items: flex-start; flex-direction: column; }
 }
