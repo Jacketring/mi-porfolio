@@ -1,91 +1,79 @@
-const nombre = "Jose Hurtado de Mendoza Suarez";
-let i = 0;
+const header = document.querySelector('.site-header');
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-function escribirNombre() {
-  if (i < nombre.length) {
-    document.getElementById("nombre").textContent += nombre.charAt(i);
-    i++;
-    setTimeout(escribirNombre, 150);
-  } else {
-    document.getElementById("nombre").classList.add("neon-fx");
-    document.querySelector(".foto-perfil").classList.add("borde-neon");
-  }
+function closeMenu() {
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Abrir menú');
+  navLinks.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
 }
 
-window.onload = () => {
-  escribirNombre();
-  crearEfectoMatrix();
-};
+menuButton.addEventListener('click', () => {
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!isOpen));
+  menuButton.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+  navLinks.classList.toggle('is-open', !isOpen);
+  document.body.classList.toggle('menu-open', !isOpen);
+});
 
-function crearEfectoMatrix() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'matrix';
-  document.body.appendChild(canvas);
-  const ctx = canvas.getContext('2d');
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+window.addEventListener('scroll', () => header.classList.toggle('is-scrolled', window.scrollY > 24), { passive: true });
 
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const letters = "アァイィウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ0123456789".split("");
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = new Array(Math.floor(columns)).fill(1);
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00ff88";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i]++;
-    }
-  }
-
-  setInterval(draw, 33);
-
-  window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+const tabs = document.querySelectorAll('[role="tab"]');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(item => {
+      const selected = item === tab;
+      item.classList.toggle('is-active', selected);
+      item.setAttribute('aria-selected', String(selected));
+      document.getElementById(`panel-${item.dataset.tab}`).hidden = !selected;
+    });
   });
+});
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealItems = document.querySelectorAll('.reveal');
+if (reducedMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach(item => item.classList.add('is-visible'));
+} else {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach(item => observer.observe(item));
 }
 
-function mostrarPopup(id) {
-  document.getElementById(id).classList.remove('oculto');
-}
-function cerrarPopup(id) {
-  document.getElementById(id).classList.add('oculto');
-}
+const form = document.getElementById('formularioContacto');
+const status = document.getElementById('form-status');
+const submitButton = form.querySelector('button[type="submit"]');
 
-function mostrarTab(tab) {
-  document.getElementById('estudios').classList.add('oculto');
-  document.getElementById('experiencia').classList.add('oculto');
-  document.getElementById(tab).classList.remove('oculto');
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  status.className = 'form-status';
+  status.textContent = 'Enviando mensaje…';
+  submitButton.disabled = true;
 
-  document.getElementById('btn-estudios').classList.remove('tab-activa');
-  document.getElementById('btn-experiencia').classList.remove('tab-activa');
-  document.getElementById('btn-' + tab).classList.add('tab-activa');
-}
-function observarAnimacionesBidireccional() {
-    const animados = document.querySelectorAll('.aparece-magico');
-    const observer = new IntersectionObserver((entradas) => {
-      entradas.forEach(entrada => {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add('visible');
-        } else {
-          entrada.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.3 });
-  
-    animados.forEach(elem => observer.observe(elem));
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/josehur2003@gmail.com', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (!response.ok) throw new Error('No se pudo enviar el formulario');
+    form.reset();
+    status.classList.add('success');
+    status.textContent = 'Mensaje enviado. Gracias, te responderé lo antes posible.';
+  } catch (error) {
+    status.classList.add('error');
+    status.textContent = 'No se ha podido enviar. Puedes escribirme directamente por correo.';
+  } finally {
+    submitButton.disabled = false;
   }
-  
-  window.addEventListener('DOMContentLoaded', observarAnimacionesBidireccional);
-  
+});
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
