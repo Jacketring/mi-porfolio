@@ -1,233 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio - Jose Hurtado de Mendoza Suarez</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de Jose Hurtado de Mendoza Suarez, desarrollador de software especializado en aplicaciones web y multiplataforma.">
+  <meta name="theme-color" content="#f4f3ef">
+  <title>Jose Hurtado de Mendoza | Desarrollador de software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-  <div id="navbar-container"></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <main class="hero">
-    <div class="foto-perfil">
-      <img src="imagenes/foto.jpg" alt="Foto de perfil" />
-    </div>
-    <h1 id="nombre"></h1>
-    <div class="disponible">Disponible para trabajar</div>
-    <p class="descripcion">
-      Soy un desarrollador de software con experiencia en desarrollo web y aplicaciones. Me apasiona crear soluciones eficientes, intuitivas y bien estructuradas.
-    </p>
-    <div class="skills">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" title="HTML" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" title="CSS" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" title="Angular" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" title="Spring Boot" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" title="SQL" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" title="C#" />
-    </div>
-    <div class="redes">
-      <a href="https://www.linkedin.com/in/jose-hurtado-de-mendoza-su%C3%A1rez-213b99320/" target="_blank">
-        <i class="fab fa-linkedin"></i>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">JH</span>
+        <span>Jose Hurtado</span>
       </a>
-      <a href="https://github.com/Jacketring" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="Curriculum_Jose_Hurtado_FINAL.html" download>
-        <i class="fas fa-file-download"></i>
-      </a>
-    </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#trayectoria">Trayectoria</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a class="nav-cta" href="#contacto">Hablemos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero container" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Desarrollo web · Backend · Frontend</p>
+        <h1>Creo software claro,<br><em>útil y bien construido.</em></h1>
+        <p class="hero-description">Soy Jose Hurtado de Mendoza, desarrollador de software con experiencia en aplicaciones web y multiplataforma. Transformo necesidades reales en soluciones eficientes, intuitivas y mantenibles.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos">Ver proyectos <span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="#contacto">Contactar</a>
+        </div>
+        <div class="social-links" aria-label="Enlaces profesionales">
+          <a href="https://www.linkedin.com/in/jose-hurtado-de-mendoza-su%C3%A1rez-213b99320/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/Jacketring" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="portrait-frame">
+          <img src="imagenes/foto.jpg" alt="Jose Hurtado de Mendoza" width="880" height="1186">
+          <span class="portrait-label">Las Palmas · España</span>
+        </div>
+        <div class="availability"><span aria-hidden="true"></span> Disponible para trabajar</div>
+      </div>
+    </section>
+
+    <section class="about section" id="sobre-mi">
+      <div class="container about-grid">
+        <div class="section-heading reveal">
+          <p class="section-number">01 / Sobre mí</p>
+          <h2>Tecnología con criterio y atención al detalle.</h2>
+        </div>
+        <div class="about-content reveal">
+          <p class="lead">Disfruto creando productos digitales que se entienden a la primera y funcionan con solidez por dentro.</p>
+          <p>Mi perfil combina desarrollo frontend y backend. He trabajado con interfaces en Angular, servicios y APIs, bases de datos SQL y mantenimiento de entornos WordPress.</p>
+          <div class="stack" aria-label="Tecnologías principales">
+            <span>HTML</span><span>CSS</span><span>Angular</span><span>Spring Boot</span><span>SQL</span><span>Git</span><span>C#</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey section" id="trayectoria">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="section-number">02 / Trayectoria</p>
+            <h2>Formación y experiencia</h2>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Trayectoria">
+            <button class="tab is-active" id="tab-experiencia" role="tab" aria-selected="true" aria-controls="panel-experiencia" data-tab="experiencia">Experiencia</button>
+            <button class="tab" id="tab-estudios" role="tab" aria-selected="false" aria-controls="panel-estudios" data-tab="estudios">Estudios</button>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-experiencia" role="tabpanel" aria-labelledby="tab-experiencia">
+          <article class="timeline-item reveal">
+            <p class="timeline-date">Experiencia profesional</p>
+            <div><h3>Backend Developer <span>· Versens</span></h3><p>Desarrollo backend y mantenimiento de sitios WordPress. Trabajo con APIs, SQL y entornos reales.</p><div class="tags"><span>Backend</span><span>APIs</span><span>SQL</span><span>WordPress</span></div></div>
+            <img class="company-logo" src="imagenes/logoVersens.jpg" alt="Versens" width="224" height="224">
+          </article>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">Experiencia profesional</p>
+            <div><h3>Frontend Developer <span>· EuroKaizen</span></h3><p>Desarrollo frontend profesional con Angular 19. Maquetación, integración y colaboración ágil.</p><div class="tags"><span>Angular 19</span><span>Frontend</span><span>Integración</span></div></div>
+            <img class="company-logo" src="imagenes/Eurokaizenlogo.jpg" alt="EuroKaizen" width="200" height="200">
+          </article>
+        </div>
+
+        <div class="tab-panel" id="panel-estudios" role="tabpanel" aria-labelledby="tab-estudios" hidden>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2022 — 2024</p>
+            <div><h3>DAW <span>· IES El Rincón</span></h3><p>Desarrollo de Aplicaciones Web, con formación en frontend y backend mediante HTML, CSS, JavaScript, PHP y SQL.</p><div class="tags"><span>Desarrollo web</span><span>Frontend</span><span>Backend</span></div></div>
+            <span class="timeline-index" aria-hidden="true">01</span>
+          </article>
+          <article class="timeline-item reveal">
+            <p class="timeline-date">2020 — 2022</p>
+            <div><h3>DAM <span>· IES El Rincón</span></h3><p>Desarrollo de Aplicaciones Multiplataforma para móvil, escritorio y web con Java, Android, Kotlin, SQLite y C#.</p><div class="tags"><span>Multiplataforma</span><span>Java</span><span>C#</span></div></div>
+            <span class="timeline-index" aria-hidden="true">02</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section" id="proyectos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-number">03 / Proyectos</p>
+          <h2>Trabajo seleccionado</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card project-dark reveal">
+            <div class="project-top"><p>Aplicación de escritorio</p><span aria-hidden="true">01</span></div>
+            <div class="project-icon" aria-hidden="true">Ff</div>
+            <div><h3>FactuFast</h3><p>Gestión para pequeñas empresas, desarrollada en C# como TFG de DAM. Centraliza clientes, facturación y productos sobre una base de datos SQL.</p><div class="tags"><span>C#</span><span>SQL</span><span>Gestión</span></div></div>
+          </article>
+          <article class="project-card project-light reveal">
+            <div class="project-top"><p>E-commerce</p><span aria-hidden="true">02</span></div>
+            <div class="project-icon" aria-hidden="true">Tz</div>
+            <div><h3>TheZone</h3><p>Tienda online tipo WooCommerce con gestión de productos, usuarios y pedidos, construida con Angular 19, Bootstrap y SQL.</p><div class="tags"><span>Angular 19</span><span>Bootstrap</span><span>SQL</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="section-number">04 / Contacto</p>
+          <h2>¿Tienes un proyecto<br>en mente?</h2>
+          <p>Cuéntame qué necesitas. Estaré encantado de conocer el reto y valorar cómo puedo ayudarte.</p>
+          <a href="mailto:josehur2003@gmail.com">josehur2003@gmail.com <span aria-hidden="true">↗</span></a>
+        </div>
+        <form class="contact-form reveal" id="formularioContacto">
+          <div class="form-row">
+            <label for="contact-name">Nombre</label>
+            <input type="text" id="contact-name" name="name" autocomplete="name" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-row">
+            <label for="contact-email">Correo electrónico</label>
+            <input type="email" id="contact-email" name="email" autocomplete="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-row">
+            <label for="contact-message">Mensaje</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Háblame brevemente de tu proyecto" required></textarea>
+          </div>
+          <button class="button button-primary submit-button" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- Sección Trayectoria -->
-  <section id="trayectoria" class="trayectoria aparece-magico" style="padding: 6rem 2rem 8rem 2rem;">
-    <h2 style="text-align: left; margin-left: 2rem; margin-bottom: 3rem; font-size: 2.8rem;">Mi Trayectoria</h2>
-
-    <div class="tabs-trayectoria">
-      <button onclick="mostrarTab('estudios')" id="btn-estudios" class="tab-activa">Estudios</button>
-      <button onclick="mostrarTab('experiencia')" id="btn-experiencia">Experiencia</button>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="current-year"></span> Jose Hurtado de Mendoza</p>
+      <a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
     </div>
+  </footer>
 
-    <!-- Contenido Estudios -->
-    <div id="estudios" class="trayectoria-tab">
-      <div class="estudios">
-        <div class="estudio-card" onclick="mostrarPopup('popup1')">
-          <h3>DAW - Desarrollo de Aplicaciones Web</h3>
-          <p>IES El Rincón (2022 - 2024)</p>
-        </div>
-        <div class="estudio-card" onclick="mostrarPopup('popup2')">
-          <h3>DAM - Desarrollo de Aplicaciones Multiplataforma</h3>
-          <p>IES El Rincón (2020 - 2022)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contenido Experiencia -->
-    <div id="experiencia" class="trayectoria-tab oculto">
-      <div class="estudios">
-        <div class="estudio-card" onclick="mostrarPopup('popup3')">
-          <h3>Versens</h3>
-          <p>Backend Developer y mantenimiento WordPress</p>
-        </div>
-        <div class="estudio-card" onclick="mostrarPopup('popup4')">
-          <h3>EuroKaizen</h3>
-          <p>Frontend Developer con Angular 19</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Popups -->
-    <div id="popup1" class="popup oculto">
-      <div class="popup-contenido">
-        <span class="cerrar" onclick="cerrarPopup('popup1')">&times;</span>
-        <h3>DAW - Desarrollo de Aplicaciones Web</h3>
-        <p>Estudios centrados en desarrollo web frontend y backend. Tecnologías: HTML, CSS, JS, PHP, SQL.</p>
-      </div>
-    </div>
-
-    <div id="popup2" class="popup oculto">
-      <div class="popup-contenido">
-        <span class="cerrar" onclick="cerrarPopup('popup2')">&times;</span>
-        <h3>DAM - Desarrollo de Aplicaciones Multiplataforma</h3>
-        <p>Desarrollo de aplicaciones móviles, escritorio y web. Java, Android, Kotlin, SQLite, C#.</p>
-      </div>
-    </div>
-
-    <div id="popup3" class="popup oculto">
-      <div class="popup-contenido contenido-flex">
-        <span class="cerrar" onclick="cerrarPopup('popup3')">&times;</span>
-        <div class="popup-logo">
-          <img class="logo-empresa-circular" src="imagenes/logoVersens.jpg" alt="Logo Versens">
-        </div>
-        <div class="popup-texto">
-          <h3>Versens</h3>
-          <p>Desarrollo backend con mantenimiento de sitios WordPress. Trabajo con APIs, SQL y entornos reales.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="popup4" class="popup oculto">
-      <div class="popup-contenido contenido-flex">
-        <span class="cerrar" onclick="cerrarPopup('popup4')">&times;</span>
-        <div class="popup-logo">
-          <img class="logo-empresa-circular" src="imagenes/Eurokaizenlogo.jpg" alt="Logo EuroKaizen">
-        </div>
-        <div class="popup-texto">
-          <h3>EuroKaizen</h3>
-          <p>Desarrollo frontend profesional con Angular 19. Maquetación, integración y colaboración ágil.</p>
-        </div>
-      </div>
-    </div>
-  </section>
- 
-  <section id="proyectos" class="proyectos aparece-magico">
-    <h2>Proyectos Personales</h2>
-    <div class="tarjetas-proyecto">
-      <div class="proyecto-card" onclick="mostrarPopup('popup-factufast')">
-        <h3>FactuFast</h3>
-        <p>Gestión empresarial en C# con base de datos SQL.</p>
-      </div>
-      <div class="proyecto-card" onclick="mostrarPopup('popup-thezone')">
-        <h3>TheZone</h3>
-        <p>WooCommerce hecho con Angular 19, Bootstrap y SQL.</p>
-      </div>
-    </div>
-
-    <!-- Popup FactuFast -->
-    <div id="popup-factufast" class="popup oculto">
-      <div class="popup-contenido">
-        <span class="cerrar" onclick="cerrarPopup('popup-factufast')">&times;</span>
-        <h3>FactuFast</h3>
-        <p>Aplicación de escritorio para la gestión de pequeñas empresas. Desarrollada completamente en C# como parte del TFG en DAM, con base de datos SQL para el control de clientes, facturación y productos.</p>
-      </div>
-    </div>
-
-    <!-- Popup TheZone -->
-    <div id="popup-thezone" class="popup oculto">
-      <div class="popup-contenido">
-        <span class="cerrar" onclick="cerrarPopup('popup-thezone')">&times;</span>
-        <h3>TheZone</h3>
-        <p>Proyecto e-commerce desarrollado como una tienda online tipo WooCommerce. Realizado con Angular 19, Bootstrap y backend con SQL. Permite gestionar productos, usuarios y pedidos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Contacto -->
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <form id="formularioContacto">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Correo:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <!-- Popup de Éxito -->
-  <div id="popupExito" class="popup oculto">
-    <div class="popup-contenido">
-      <span class="cerrar" onclick="cerrarPopupExito()">&times;</span>
-      <h3>¡Mensaje enviado correctamente!</h3>
-      <p>Gracias por ponerte en contacto. Te responderé lo antes posible.</p>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('navbar-container').innerHTML = data;
-      });
-  </script>
-  <script src="script.js"></script>
-  <script>
-    const form = document.getElementById('formularioContacto');
-    const popup = document.getElementById('popupExito');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      fetch("https://formsubmit.co/ajax/josehur2003@gmail.com", {
-        method: "POST",
-        body: data
-      })
-      .then(response => {
-        if (response.ok) {
-          mostrarPopupExito();
-          form.reset();
-        } else {
-          alert("❌ Hubo un error al enviar el formulario.");
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        alert("❌ No se pudo enviar el mensaje.");
-      });
-    });
-
-    function mostrarPopupExito() {
-      popup.classList.remove("oculto");
-      document.body.style.overflow = "hidden";
-      setTimeout(() => cerrarPopupExito(), 5000);
-    }
-
-    function cerrarPopupExito() {
-      popup.classList.add("oculto");
-      document.body.style.overflow = "auto";
-    }
-  </script>
+  <script src="Script.js"></script>
 </body>
 </html>
