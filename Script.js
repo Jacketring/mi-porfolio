@@ -39,13 +39,53 @@ const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
+const sectionLinks = new Map(
+  Array.from(navLinks.querySelectorAll('a[href^="#"]')).map(link => [link.hash.slice(1), link])
+);
+const trackedSections = Array.from(document.querySelectorAll('main section[id]'))
+  .filter(section => sectionLinks.has(section.id));
+let navigationFrame = 0;
+
+function updateCurrentNavigation() {
+  const marker = window.scrollY + window.innerHeight * 0.38;
+  let activeId = null;
+
+  trackedSections.forEach(section => {
+    if (section.offsetTop <= marker) activeId = section.id;
+  });
+
+  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+    activeId = 'contacto';
+  }
+
+  sectionLinks.forEach((link, sectionId) => {
+    const isCurrent = sectionId === activeId;
+    link.classList.toggle('is-current', isCurrent);
+    if (isCurrent) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+
+  navigationFrame = 0;
+}
+
+function requestNavigationUpdate() {
+  if (!navigationFrame) navigationFrame = requestAnimationFrame(updateCurrentNavigation);
+}
+
+updateCurrentNavigation();
+window.addEventListener('scroll', requestNavigationUpdate, { passive: true });
+window.addEventListener('resize', requestNavigationUpdate);
+
 const tabs = document.querySelectorAll('[role="tab"]');
 tabs.forEach(tab => {
+  tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+
   tab.addEventListener('click', () => {
     tabs.forEach(item => {
       const selected = item === tab;
       item.classList.toggle('is-active', selected);
       item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
       document.getElementById(`panel-${item.dataset.tab}`).hidden = !selected;
     });
   });
@@ -79,10 +119,26 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
 const form = document.getElementById('formularioContacto');
 const status = document.getElementById('form-status');
 const submitButton = form.querySelector('button[type="submit"]');
+const honeypot = form.elements.namedItem('_honey');
+let formOpenedAt = performance.now();
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
   status.className = 'form-status';
+
+  if (honeypot.value) {
+    form.reset();
+    status.classList.add('success');
+    status.textContent = 'Mensaje enviado. Gracias.';
+    return;
+  }
+
+  if (performance.now() - formOpenedAt < 1500) {
+    status.classList.add('error');
+    status.textContent = 'Espera un momento antes de enviar el formulario.';
+    return;
+  }
+
   status.textContent = 'Enviando mensaje…';
   submitButton.disabled = true;
 
@@ -94,6 +150,7 @@ form.addEventListener('submit', async event => {
     });
     if (!response.ok) throw new Error('No se pudo enviar el formulario');
     form.reset();
+    formOpenedAt = performance.now();
     status.classList.add('success');
     status.textContent = 'Mensaje enviado. Gracias, te responderé lo antes posible.';
   } catch (error) {

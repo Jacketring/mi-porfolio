@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portafolio de Jose Hurtado de Mendoza Suarez, desarrollador de software especializado en aplicaciones web y multiplataforma.">
   <meta name="theme-color" content="#f4f3ef">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://josehurtado.dev/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Jose Hurtado">
+  <meta property="og:title" content="Jose Hurtado de Mendoza | Desarrollador de software">
+  <meta property="og:description" content="Desarrollo aplicaciones web y multiplataforma claras, eficientes y mantenibles.">
+  <meta property="og:url" content="https://josehurtado.dev/">
+  <meta property="og:image" content="https://josehurtado.dev/og-cover.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Jose Hurtado, desarrollador de software web, backend y frontend">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jose Hurtado de Mendoza | Desarrollador de software">
+  <meta name="twitter:description" content="Desarrollo aplicaciones web y multiplataforma claras, eficientes y mantenibles.">
+  <meta name="twitter:image" content="https://josehurtado.dev/og-cover.jpg">
+  <meta name="twitter:image:alt" content="Jose Hurtado, desarrollador de software web, backend y frontend">
   <title>Jose Hurtado de Mendoza | Desarrollador de software</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
@@ -12,7 +32,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Style.css?v=20260806e">
+  <link rel="stylesheet" href="Style.css?v=20260806f">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://josehurtado.dev/#person",
+          "name": "Jose Hurtado de Mendoza Suarez",
+          "url": "https://josehurtado.dev/",
+          "image": "https://josehurtado.dev/og-cover.jpg",
+          "jobTitle": "Desarrollador de software",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cádiz",
+            "addressRegion": "Andalucía",
+            "addressCountry": "ES"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/jose-hurtado-de-mendoza-su%C3%A1rez-213b99320/",
+            "https://github.com/Jacketring"
+          ],
+          "knowsAbout": ["HTML", "CSS", "Angular", "Spring Boot", "SQL", "Git", "C#", "WordPress"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://josehurtado.dev/#website",
+          "url": "https://josehurtado.dev/",
+          "name": "Jose Hurtado | Portafolio",
+          "inLanguage": "es",
+          "author": { "@id": "https://josehurtado.dev/#person" }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -55,7 +109,11 @@
 
       <div class="hero-visual reveal">
         <div class="portrait-frame">
-          <img src="imagenes/foto.jpg" alt="Jose Hurtado de Mendoza" width="880" height="1186">
+          <picture>
+            <source type="image/avif" srcset="imagenes/foto-440.avif 440w, imagenes/foto-880.avif 880w" sizes="(max-width: 680px) calc(100vw - 66px), (max-width: 900px) min(80vw, 410px), 360px">
+            <source type="image/webp" srcset="imagenes/foto-440.webp 440w, imagenes/foto-880.webp 880w" sizes="(max-width: 680px) calc(100vw - 66px), (max-width: 900px) min(80vw, 410px), 360px">
+            <img src="imagenes/foto.jpg" alt="Jose Hurtado de Mendoza" width="880" height="1186" decoding="async" fetchpriority="high">
+          </picture>
           <span class="portrait-label">Cádiz · Andalucía</span>
         </div>
         <div class="availability"><span aria-hidden="true"></span> Disponible para trabajar</div>
@@ -123,12 +181,18 @@
           <article class="timeline-item reveal">
             <p class="timeline-date">Experiencia profesional</p>
             <div><h3>Backend Developer <span>· Versens</span></h3><p>Desarrollo backend y mantenimiento de sitios WordPress. Trabajo con APIs, SQL y entornos reales.</p><div class="tags"><span>Backend</span><span>APIs</span><span>SQL</span><span>WordPress</span></div></div>
-            <img class="company-logo" src="imagenes/logoVersens.jpg" alt="Versens" width="224" height="224">
+            <picture class="company-logo">
+              <source type="image/webp" srcset="imagenes/logo-versens.webp">
+              <img src="imagenes/logoVersens.jpg" alt="Versens" width="224" height="224" loading="lazy" decoding="async">
+            </picture>
           </article>
           <article class="timeline-item reveal">
             <p class="timeline-date">Experiencia profesional</p>
             <div><h3>Frontend Developer <span>· EuroKaizen</span></h3><p>Desarrollo frontend profesional con Angular 19. Maquetación, integración y colaboración ágil.</p><div class="tags"><span>Angular 19</span><span>Frontend</span><span>Integración</span></div></div>
-            <img class="company-logo" src="imagenes/Eurokaizenlogo.jpg" alt="EuroKaizen" width="200" height="200">
+            <picture class="company-logo">
+              <source type="image/webp" srcset="imagenes/logo-eurokaizen.webp">
+              <img src="imagenes/Eurokaizenlogo.jpg" alt="EuroKaizen" width="200" height="200" loading="lazy" decoding="async">
+            </picture>
           </article>
         </div>
 
@@ -191,19 +255,26 @@
           <p>Cuéntame qué necesitas. Estaré encantado de conocer el reto y valorar cómo puedo ayudarte.</p>
           <a href="mailto:josehur2003@gmail.com">josehur2003@gmail.com <span aria-hidden="true">↗</span></a>
         </div>
-        <form class="contact-form reveal" id="formularioContacto">
+        <form class="contact-form reveal" id="formularioContacto" aria-describedby="privacy-note">
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="contact-company">No rellenes este campo</label>
+            <input type="text" id="contact-company" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde josehurtado.dev">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <label for="contact-name">Nombre</label>
-            <input type="text" id="contact-name" name="name" autocomplete="name" placeholder="Tu nombre" required>
+            <input type="text" id="contact-name" name="name" autocomplete="name" placeholder="Tu nombre" minlength="2" maxlength="80" required>
           </div>
           <div class="form-row">
             <label for="contact-email">Correo electrónico</label>
-            <input type="email" id="contact-email" name="email" autocomplete="email" placeholder="tu@email.com" required>
+            <input type="email" id="contact-email" name="email" autocomplete="email" placeholder="tu@email.com" maxlength="254" required>
           </div>
           <div class="form-row">
             <label for="contact-message">Mensaje</label>
-            <textarea id="contact-message" name="message" rows="4" placeholder="Háblame brevemente de tu proyecto" required></textarea>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Háblame brevemente de tu proyecto" minlength="20" maxlength="2000" required></textarea>
           </div>
+          <p class="form-privacy" id="privacy-note">Tus datos se utilizarán únicamente para responder a tu consulta. El envío se procesa de forma segura mediante FormSubmit.</p>
           <button class="button button-primary submit-button" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -218,6 +289,6 @@
     </div>
   </footer>
 
-  <script src="Script.js?v=20260806e"></script>
+  <script src="Script.js?v=20260806f"></script>
 </body>
 </html>
