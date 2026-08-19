@@ -148,12 +148,16 @@ h1 em { color: var(--accent); font-style: normal; }
 .project-card > div:last-child > p { max-width: 500px; margin: 0 0 20px; opacity: .7; line-height: 1.65; }
 .project-dark .tags span { border-color: #46514d; background: transparent; }
 .project-light .tags span { border-color: rgba(24,32,29,.18); background: rgba(255,255,255,.35); }
-.project-coming { grid-column: 1 / -1; min-height: 300px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; column-gap: 40px; background: linear-gradient(135deg, #f4f1e9, #dce8e1); color: var(--ink); border: 1px solid rgba(255,255,255,.14); }
-.project-coming .project-top { grid-column: 1 / -1; }
-.project-coming .project-icon { grid-column: 2; grid-row: 2; align-self: center; width: 96px; height: 96px; border-radius: 28px; background: var(--dark); color: var(--mint); box-shadow: 16px 18px 0 rgba(24,32,29,.09); font-size: 1.7rem; letter-spacing: .12em; }
-.project-coming > div:last-child { grid-column: 1; grid-row: 2; align-self: end; }
-.project-coming > div:last-child > .coming-status { margin: 0 0 8px; color: var(--accent-dark); opacity: 1; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
-.project-coming h3 { margin: 0; font-size: clamp(2.8rem, 6vw, 5rem); }
+.project-membora { grid-column: 1 / -1; min-height: 410px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr; column-gap: 50px; background: linear-gradient(135deg, #f4f1e9, #dce8e1); color: var(--ink); border: 1px solid rgba(255,255,255,.14); }
+.project-membora .project-top { grid-column: 1 / -1; }
+.project-membora .project-icon { grid-column: 2; grid-row: 2; align-self: center; width: 112px; height: 112px; border-radius: 32px; background: var(--dark); color: var(--mint); box-shadow: 18px 20px 0 rgba(24,32,29,.09); font-size: 2rem; }
+.project-membora > div:last-child { grid-column: 1; grid-row: 2; align-self: end; }
+.project-membora > div:last-child > .project-status { margin: 0 0 8px; color: var(--accent-dark); opacity: 1; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.project-membora h3 { margin: 0; font-size: clamp(2.8rem, 6vw, 5rem); }
+.project-membora .tags span { border-color: rgba(24,32,29,.18); background: rgba(255,255,255,.38); }
+.project-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
+.project-link { min-height: 45px; display: inline-flex; align-items: center; gap: 10px; padding: 0 17px; border: 1px solid rgba(24,32,29,.2); border-radius: 11px; background: rgba(255,255,255,.35); font-size: .82rem; font-weight: 800; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.project-link-primary { border-color: var(--ink); background: var(--ink); color: #fff; }
 
 .contact { background: rgba(253,253,251,.9); backdrop-filter: blur(8px); }
 .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(70px, 10vw, 150px); }
@@ -295,7 +299,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(92,100,232,.42);
   .project-card:hover::after { opacity: 1; transform: translate(12%, -10%) scale(1); }
   .project-card:hover h3 { color: inherit; transform: translateX(5px); }
   .project-card h3 { transition: transform .3s ease, color .25s ease; }
-  .project-light:hover h3, .project-coming:hover h3 { color: var(--accent-dark); }
+  .project-light:hover h3, .project-membora:hover h3 { color: var(--accent-dark); }
+  .project-link:hover { transform: translateY(-2px); background: #fff; color: var(--accent-dark); }
+  .project-link-primary:hover { background: var(--accent-dark); color: #fff; }
 
   .contact-copy > a:hover { color: var(--accent-dark); border-color: var(--accent); transform: translateY(-2px); }
   .contact-copy > a:hover span { transform: translate(3px, -3px); }
@@ -355,8 +361,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(92,100,232,.42);
   .company-logo, .timeline-index { grid-column: 2; grid-row: 2; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card { min-height: 470px; padding: 26px; }
-  .project-coming { min-height: 350px; display: flex; }
-  .project-coming .project-icon { width: 86px; height: 86px; }
+  .project-membora { min-height: 520px; display: flex; }
+  .project-membora .project-icon { width: 92px; height: 92px; }
   .cv-section { padding: 70px 0; }
   .cv-card { min-height: auto; grid-template-columns: 1fr; gap: 58px; padding: 38px 26px 54px; }
   .cv-copy h2 { font-size: clamp(2.35rem, 11vw, 3.4rem); }
@@ -384,7 +390,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(92,100,232,.42);
   .project-card { min-height: 440px; padding: 23px; }
   .project-card h3 { font-size: 2rem; }
   .project-icon { width: 102px; height: 102px; }
-  .project-coming { min-height: 310px; }
+  .project-membora { min-height: 540px; }
   .cv-card { padding-inline: 22px; }
   .cv-download { gap: 12px; padding-left: 15px; }
   .cv-download-arrow { width: 44px; height: 44px; flex-basis: 44px; }
